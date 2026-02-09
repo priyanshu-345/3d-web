@@ -1,0 +1,16 @@
+{
+  "name": "3d-web-studio",
+  "version": "1.0.0",
+  "description": "3D Web Studio - Interior Design and Vehicle Designer",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "preview": "npm --prefix client run preview",
+    "start:server": "npm --prefix server run dev",
+    "start:client": "npm --prefix client run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

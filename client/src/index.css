@@ -1,0 +1,1158 @@
+/* ignore lint for tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #3f4d36 0%, #1a2315 100%);
+  /* Dark Olive to Black */
+  --secondary-gradient: linear-gradient(135deg, #556b2f 0%, #2f3e23 100%);
+  /* Lighter Olive */
+  --accent-gold: #c5b358;
+  --glass-bg: rgba(63, 77, 54, 0.1);
+  --glass-border: rgba(85, 107, 47, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --neon-green: #7fff00;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background-color: #000000;
+  /* Pure Black */
+  color: #f8fafc;
+  overflow-x: hidden;
+  selection-background-color: #556b2f;
+  selection-color: white;
+  /* ignore lint */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- CUSTOM SCROLLBAR (Premium Look) --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #556b2f, #2f3e23);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6b8e23, #3f4d36);
+}
+
+/* --- GLASSMORPHISM & NEUMORPHISM --- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Fainter border */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(99, 102, 241, 0.15);
+  /* Subtle glow on hover */
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* --- TEXT EFFECTS --- */
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradient-flow 5s ease infinite;
+}
+
+.text-gradient-secondary {
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* --- BUTTONS (Dynamic & Interactive) --- */
+.btn-primary {
+  background: var(--primary-gradient);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #556b2f 0%, #2f3e23 100%);
+  /* Reverse gradient */
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(85, 107, 47, 0.6);
+}
+
+/* --- ANIMATIONS (Advanced) --- */
+
+/* 1. Gradient Flow */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 2. Smooth Fade In Up */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3. Staggered Delay Utilities */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* 4. Float Animation (Refined) */
+@keyframes float-smooth {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float-smooth 6s ease-in-out infinite;
+}
+
+/* 5. Pulse Glow */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+/* 6. Tilt Effect (Hover) */
+.hover-tilt {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
+}
+
+/* --- UTILITIES --- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card Zoom Effect */
+.card-zoom-image {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.group:hover .card-zoom-image {
+  transform: scale(1.1);
+}
+
+/* --- HOME: Solar orbits (decorative) --- */
+.solar-orbit {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(148, 163, 184, 0.08);
+  animation: orbit-spin 28s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.solar-orbit-1 {
+  width: 520px;
+  height: 520px;
+  animation-duration: 36s;
+}
+
+.solar-orbit-2 {
+  width: 720px;
+  height: 720px;
+  animation-duration: 52s;
+}
+
+.solar-orbit-3 {
+  width: 940px;
+  height: 940px;
+  animation-duration: 68s;
+}
+
+.solar-orbit-4 {
+  width: 1160px;
+  height: 1160px;
+  animation-duration: 84s;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotateZ(0deg) rotateX(62deg);
+  }
+
+  to {
+    transform: rotateZ(360deg) rotateX(62deg);
+  }
+}
+
+/* --- 3D FLIP CARDS (Advanced Features) --- */
+.flip-card {
+  perspective: 1200px;
+  width: 100%;
+  height: 320px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid rgba(47, 62, 35, 0.65);
+  background: rgba(26, 35, 21, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 0 30px rgba(127, 255, 0, 0.12);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solar-orbit {
+    animation: none;
+  }
+
+  .flip-card-inner {
+    transition: none;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: none;
+  }
+}
+
+/* --- HOME: Center 3D logo chip --- */
+.home-logo-3d {
+  position: relative;
+  background: radial-gradient(circle at 0% 0%, rgba(129, 230, 217, 0.35), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(196, 181, 253, 0.45), transparent 55%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.6));
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.85),
+    0 0 0 1px rgba(148, 163, 184, 0.25),
+    0 0 28px rgba(129, 140, 248, 0.55);
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateX(12deg) rotateY(-16deg);
+}
+
+.home-logo-3d::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.home-logo-3d:hover {
+  transform: perspective(900px) rotateX(6deg) rotateY(-8deg) translateY(-2px);
+  box-shadow:
+    0 22px 55px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(191, 219, 254, 0.4),
+    0 0 40px rgba(129, 140, 248, 0.85);
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 260ms ease-out;
+}
+
+/* --- SOLAR ANIMATION (Spans Entire Page) --- */
+.solar-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at top, rgba(255, 200, 50, 0.15), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(15, 23, 42, 0.9), #000 70%);
+}
+
+/* Animated Sun */
+.solar-sun {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffeb3b 40%, #ff9800 70%, #ff5722);
+  border-radius: 50%;
+  box-shadow:
+    0 0 60px rgba(255, 235, 59, 0.8),
+    0 0 120px rgba(255, 152, 0, 0.6),
+    0 0 180px rgba(255, 87, 34, 0.4);
+  animation: solar-pulse 4s ease-in-out infinite, solar-rotate 20s linear infinite;
+}
+
+@keyframes solar-pulse {
+
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow:
+      0 0 60px rgba(255, 235, 59, 0.8),
+      0 0 120px rgba(255, 152, 0, 0.6),
+      0 0 180px rgba(255, 87, 34, 0.4);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow:
+      0 0 80px rgba(255, 235, 59, 1),
+      0 0 160px rgba(255, 152, 0, 0.8),
+      0 0 240px rgba(255, 87, 34, 0.6);
+  }
+}
+
+@keyframes solar-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Solar Rays */
+.solar-rays {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+}
+
+.solar-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(255, 235, 59, 0.8), transparent);
+  transform-origin: center top;
+  animation: solar-ray-pulse 3s ease-in-out infinite;
+}
+
+@keyframes solar-ray-pulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    height: 150px;
+  }
+
+  50% {
+    opacity: 1;
+    height: 200px;
+  }
+}
+
+/* Solar Particles */
+.solar-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.solar-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 235, 59, 1), rgba(255, 152, 0, 0.6));
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+  animation: solar-particle-float linear infinite;
+}
+
+@keyframes solar-particle-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) translateX(calc(var(--random-x, 0) * 50px)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* --- ANIMATED 3D LOGO (Big to Small Effect) --- */
+.logo-3d-animated {
+  position: relative;
+  display: inline-block;
+  perspective: 1000px;
+  animation: logo-scale-in 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes logo-scale-in {
+  0% {
+    transform: scale(3) rotateX(20deg) rotateY(-20deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.logo-3d-text {
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow:
+    0 10px 30px rgba(102, 126, 234, 0.5),
+    0 20px 60px rgba(118, 75, 162, 0.3);
+  animation: logo-gradient-shift 5s ease infinite, logo-float 3s ease-in-out infinite;
+  transform-style: preserve-3d;
+  letter-spacing: 0.1em;
+}
+
+@keyframes logo-gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes logo-float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotateX(5deg);
+  }
+}
+
+.logo-3d-text::before {
+  content: '3D Interior Design';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateZ(-20px) scale(1.05);
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+/* Responsive adjustments for logo */
+@media (max-width: 768px) {
+  .logo-3d-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-3d-text {
+    font-size: 1.8rem;
+  }
+}
+
+/* ========================================
+   🍎 APPLE-STYLE TEXT ANIMATIONS
+   ======================================== */
+
+/* 1️⃣ Scroll-Based Text Reveal (Fade + Move) */
+.text-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  filter: blur(10px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* 2️⃣ Text Fade-In + Blur-Out */
+.text-blur-reveal {
+  animation: blurReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes blurReveal {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* 3️⃣ Sticky Text Styles */
+.sticky-text-container {
+  position: relative;
+  min-height: 200vh;
+}
+
+.sticky-text {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 4️⃣ Character-by-Character Animation */
+.char-reveal {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: charReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes charReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 5️⃣ Gradient Animated Text */
+.gradient-text-animated {
+  background: linear-gradient(90deg,
+      #667eea 0%,
+      #764ba2 25%,
+      #f093fb 50%,
+      #4facfe 75%,
+      #00f2fe 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Alternative gradient styles */
+.gradient-text-gold {
+  background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(90deg, #a855f7, #ec4899, #a855f7);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease infinite;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* 6️⃣ Parallax Text Effect */
+.parallax-text {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-text-slow {
+  transform: translateY(var(--parallax-y, 0));
+}
+
+/* 7️⃣ Text Morphing Styles */
+.morphing-text {
+  display: inline-block;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 8️⃣ Light Glow / Soft Shadow Text */
+.text-glow-soft {
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-glow-purple {
+  text-shadow:
+    0 0 20px rgba(168, 85, 247, 0.4),
+    0 0 40px rgba(168, 85, 247, 0.2),
+    0 2px 8px rgba(168, 85, 247, 0.3);
+}
+
+.text-glow-blue {
+  text-shadow:
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.text-glow-gold {
+  text-shadow:
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2),
+    0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* 9️⃣ Minimal Hover Interaction */
+.text-hover-lift {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+
+.text-hover-lift:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.2);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.text-hover-glow {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-hover-glow:hover {
+  text-shadow:
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 60px rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.text-hover-scale {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+
+/* --- NEW TEXT EFFECTS (Holographic & Liquid) --- */
+.text-hologram {
+  background: linear-gradient(135deg,
+      #ffffff 0%,
+      #a855f7 25%,
+      #6366f1 50%,
+      #ffffff 75%,
+      #a855f7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hologram-shine 3s linear infinite;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes hologram-shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.text-liquid-gold {
+  background: linear-gradient(to bottom, #cfc7f8 0%, #ebbba7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.text-liquid-gold::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.8) 50%, transparent 55%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine-flow 3s infinite;
+}
+
+@keyframes shine-flow {
+  0% {
+    background-position: 150% 150%;
+  }
+
+  100% {
+    background-position: -50% -50%;
+  }
+}
+
+
+/* 🎯 Premium Button Hover Effects */
+.btn-hover-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hover-premium::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-hover-premium:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-hover-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 🌟 Smooth Scroll Fade Effects */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: fadeInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 🎨 Stagger Delays for Sequential Animations */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+.delay-900 {
+  animation-delay: 0.9s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+/* 💫 Smooth Transitions */
+.transition-smooth {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-bounce {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 🔥 Text Scale on Scroll */
+.text-scale-reveal {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleReveal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ✨ Shimmer Effect */
+.text-shimmer {
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    background-position: -200% 0;
+  }
+
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+/* 🎭 Perspective Text */
+.text-perspective {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.text-3d-rotate {
+  animation: rotate3D 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes rotate3D {
+  0% {
+    transform: rotateX(90deg) rotateY(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* 🌊 Wave Text Animation */
+.text-wave {
+  display: inline-block;
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply wave with stagger */
+.text-wave:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.text-wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.text-wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.text-wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.text-wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* 🎯 Focus Ring Effect */
+.text-focus-ring {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.text-focus-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.text-focus-ring:hover::after {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* 🚀 Performance Optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 📱 Responsive Text Animations */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .text-reveal,
+  .text-blur-reveal,
+  .fade-in-up,
+  .fade-in-down,
+  .fade-in-left,
+  .fade-in-right {
+    animation-duration: 0.8s;
+  }
+}
+
+/* --- AI SCANNER ANIMATION --- */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scan {
+  animation: scan 2s linear infinite;
+}
