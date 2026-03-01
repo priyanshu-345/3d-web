@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "3D Web Studio - Interior Design and Vehicle Designer",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
     "build": "npm --prefix client run build",
