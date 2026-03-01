@@ -1,27 +1,42 @@
-import AboutHero3D from '../components/AboutHero3D';
-import BackgroundVariant3D from '../components/BackgroundVariant3D';
 import TextMorph from '../components/TextMorph';
-import blackVideo from './black.mp4';
+import videoBg from './black.mp4';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-transparent relative">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="fixed inset-0 w-full h-full object-cover z-0"
-      >
-        <source src={blackVideo} type="video/mp4" />
-      </video>
-      <div className="fixed inset-0 bg-transparent z-0"></div>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: '#000' }}>
+      {/* Cinematic Video Background */}
+      <div className="fixed inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-60"
+        >
+          <source src={videoBg} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70" />
+      </div>
+
+      {/* Floating Particles Overlay */}
+      <div className="fixed inset-0 z-1 pointer-events-none">
+        {Array.from({ length: 40 }).map((_, i) => (
+          <div key={i} className="absolute rounded-full" style={{
+            width: `${1 + Math.random() * 2}px`, height: `${1 + Math.random() * 2}px`,
+            left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`,
+            background: '#fff',
+            opacity: 0.1 + Math.random() * 0.4,
+            animation: `aboutStar ${3 + Math.random() * 6}s ease-in-out infinite alternate`,
+            animationDelay: `${Math.random() * 5}s`,
+          }} />
+        ))}
+        <style>{`
+          @keyframes aboutStar { from{transform:scale(1);opacity:.1} to{transform:scale(1.5);opacity:.5} }
+        `}</style>
+      </div>
 
       {/* Header */}
       <section className="text-white py-24 relative overflow-hidden z-10 w-full">
-        {/* New 3D Background - Optional or Transparent */}
-        {/* <BackgroundVariant3D color="#6366f1" /> remove if video is sufficient, or keep as subtle overlay */}
-
 
         <div className="absolute inset-0 bg-transparent pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -59,9 +74,47 @@ const About = () => {
               </div>
             </div>
 
-            {/* 3D Video Element */}
+            {/* Visual Element (CSS, no WebGL overhead) */}
             <div className="h-full w-full fade-in-right delay-400">
-              <AboutHero3D />
+              <div className="w-full h-[500px] rounded-2xl overflow-hidden border border-white/10 relative" style={{
+                background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
+              }}>
+                {/* Decorative geometric shapes */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    <div className="absolute inset-0 border-2 border-indigo-500/30 rounded-2xl" style={{ animation: 'aboutSpin 10s linear infinite' }} />
+                    <div className="absolute inset-4 border-2 border-purple-500/30 rounded-2xl" style={{ animation: 'aboutSpin 15s linear infinite reverse' }} />
+                    <div className="absolute inset-8 border-2 border-pink-500/30 rounded-2xl" style={{ animation: 'aboutSpin 8s linear infinite' }} />
+                    <div className="absolute inset-12 bg-gradient-to-br from-indigo-600/30 to-purple-600/30 rounded-2xl backdrop-blur-sm flex items-center justify-center">
+                      <span className="text-5xl">🏠</span>
+                    </div>
+                  </div>
+                </div>
+                {/* Floating particles inside */}
+                {Array.from({ length: 15 }).map((_, i) => (
+                  <div key={i} className="absolute rounded-full" style={{
+                    width: `${2 + Math.random() * 4}px`, height: `${2 + Math.random() * 4}px`,
+                    left: `${10 + Math.random() * 80}%`, top: `${10 + Math.random() * 80}%`,
+                    background: ['#6366f1', '#a855f7', '#ec4899'][i % 3],
+                    opacity: 0.3 + Math.random() * 0.4,
+                    animation: `aboutStar ${3 + Math.random() * 4}s ease-in-out infinite alternate`,
+                    animationDelay: `${Math.random() * 3}s`,
+                  }} />
+                ))}
+                {/* Bottom overlay */}
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl flex justify-between items-center bg-transparent border border-white/10">
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Our Vision in 3D</h3>
+                    <p className="text-gray-300 text-sm">Interactive Real-time Rendering Engine</p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center animate-pulse cursor-pointer hover:bg-white/20 transition-colors">
+                    <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-1"></div>
+                  </div>
+                </div>
+                <style>{`
+                  @keyframes aboutSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+                `}</style>
+              </div>
             </div>
           </div>
 

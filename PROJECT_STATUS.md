@@ -62,22 +62,27 @@
 - ✅ Click model → open live 3D viewer
 - ✅ Real-time updates after upload
 
-## 🚧 Remaining Phases (Optional Enhancements)
+## ✅ Recently Completed Enhancements
 
-### Phase 9: Extra Features
-- ⏳ Change wall color in 3D viewer
-- ⏳ Lighting presets
-- ⏳ Enhanced fullscreen 3D view
-- ⏳ Price display on models
-- ⏳ Booking form integration
-- ⏳ WhatsApp integration
+### Phase 9: Extra Features ✅
+- ✅ Change wall color in 3D viewer (8 colors)
+- ✅ Lighting presets (5 options: sunset, dawn, night, studio, city)
+- ✅ Enhanced fullscreen 3D view
+- ✅ Price display on models
+- ✅ Booking form integration
+- ✅ WhatsApp integration
+- ✅ Dark mode toggle (persisted to localStorage)
+- ✅ Gallery pagination (6 items per page)
+- ✅ Search functionality in gallery
+- ✅ Exterior 3D scene (Modern Villa Facade)
+- ✅ All 7 gallery categories now have dedicated 3D scenes
 
-### Phase 10: Optimization & Security
+### Phase 10: Optimization & Security ✅
+- ✅ Lazy load pages (React Suspense)
+- ✅ Enhanced security for admin routes
+- ✅ Loading speed improvements (code splitting)
 - ⏳ Compress 3D models
-- ⏳ Lazy load models
-- ⏳ Enhanced security for admin routes
 - ⏳ Environment variable validation
-- ⏳ Loading speed improvements
 
 ### Phase 11: Deployment
 - ⏳ Frontend deployment (Netlify/Vercel)
@@ -94,12 +99,13 @@
 
 ## 🎯 Current Status
 
-**The core application is fully functional!**
+**The application is fully functional with all core and enhancement features!**
 
 You can:
 - ✅ View the website with all pages
-- ✅ Browse the gallery (when models are uploaded)
-- ✅ View 3D models interactively
+- ✅ Browse the gallery with pagination & search
+- ✅ View 7 different 3D room models interactively
+- ✅ Toggle dark/light mode
 - ✅ Login as admin
 - ✅ Upload new 3D models
 - ✅ Delete models

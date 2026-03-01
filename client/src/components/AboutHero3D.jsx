@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
+import SafeCanvas from './SafeCanvas';
 import { OrbitControls, PerspectiveCamera, Environment, Float, Center, Text3D } from '@react-three/drei';
 
 const FloatingIcon = ({ position, rotation, color, scale }) => {
@@ -29,7 +30,7 @@ const FloatingIcon = ({ position, rotation, color, scale }) => {
 const AboutHero3D = () => {
     return (
         <div className="w-full h-[500px] rounded-2xl overflow-hidden border border-white/10 bg-transparent relative">
-            <Canvas dpr={[1, 2]}>
+            <SafeCanvas fallbackLabel="Our Vision in 3D" dpr={[1, 2]}>
                 <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
                 <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
 
@@ -64,7 +65,7 @@ const AboutHero3D = () => {
                 </group>
 
                 <Environment preset="city" />
-            </Canvas>
+            </SafeCanvas>
 
             {/* Overlay Text attempting to look like a "Video" Overlay */}
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl flex justify-between items-center bg-transparent border border-white/10">

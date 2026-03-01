@@ -1,11 +1,11 @@
 import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
+import SafeCanvas from './SafeCanvas';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random';
 
 const FloatingParticles = (props) => {
     const ref = useRef();
-    // Different distribution for variation: cylinder vs sphere
     const positions = useMemo(() => random.inSphere(new Float32Array(3000), { radius: 1.2 }), []);
 
     useFrame((state, delta) => {
@@ -18,7 +18,7 @@ const FloatingParticles = (props) => {
             <Points ref={ref} positions={positions} stride={3} frustumCulled={false} {...props}>
                 <PointMaterial
                     transparent
-                    color="#aa44ff" // Purple/Pink varied
+                    color="#aa44ff"
                     size={0.003}
                     sizeAttenuation={true}
                     depthWrite={false}
@@ -32,9 +32,9 @@ const FloatingParticles = (props) => {
 const BackgroundVariant3D = ({ color = "#aa44ff" }) => {
     return (
         <div className="absolute inset-0 z-0">
-            <Canvas camera={{ position: [0, 0, 1] }}>
+            <SafeCanvas fallbackLabel="3D Background" camera={{ position: [0, 0, 1] }}>
                 <FloatingParticles color={color} />
-            </Canvas>
+            </SafeCanvas>
         </div>
     );
 };

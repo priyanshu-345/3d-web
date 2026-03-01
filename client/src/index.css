@@ -1156,3 +1156,298 @@ html {
 .animate-scan {
   animation: scan 2s linear infinite;
 }
+
+/* ══════════════════════════════════════════════════════
+   🌈 VIBRANT GLOBAL COLOR SYSTEM UPGRADE
+   ══════════════════════════════════════════════════════ */
+
+:root {
+  --vivid-indigo: #6366f1;
+  --vivid-purple: #a855f7;
+  --vivid-pink: #ec4899;
+  --vivid-amber: #f59e0b;
+  --vivid-emerald: #10b981;
+  --vivid-blue: #3b82f6;
+  --vivid-cyan: #06b6d4;
+}
+
+/* Scrollbar — vibrant purple */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #a855f7) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #818cf8, #c084fc) !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a !important;
+}
+
+/* ── VIBRANT GRADIENT TEXTS ── */
+.gradient-text-vivid {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease infinite;
+}
+
+.gradient-text-fire {
+  background: linear-gradient(90deg, #f59e0b, #ef4444, #ec4899);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+.gradient-text-ocean {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6, #6366f1);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+.gradient-text-nature {
+  background: linear-gradient(90deg, #10b981, #06b6d4, #3b82f6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* ── NEON GLOW EFFECTS ── */
+.neon-indigo {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(99, 102, 241, 0.3), 0 0 80px rgba(99, 102, 241, 0.1);
+}
+
+.neon-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3), 0 0 80px rgba(168, 85, 247, 0.1);
+}
+
+.neon-pink {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.5), 0 0 40px rgba(236, 72, 153, 0.3), 0 0 80px rgba(236, 72, 153, 0.1);
+}
+
+.neon-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.1);
+}
+
+.neon-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.1);
+}
+
+/* ── VIBRANT BUTTON STYLES ── */
+.btn-vivid-primary {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-vivid-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-vivid-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-vivid-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 50px rgba(99, 102, 241, 0.6);
+}
+
+.btn-vivid-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 14px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(16px);
+}
+
+.btn-vivid-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* ── VIBRANT CARD HOVER ── */
+.card-vivid {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-vivid:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+/* ── ANIMATED GRADIENT BORDER ── */
+@keyframes border-rotate {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 24px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899, #f59e0b, #6366f1);
+  background-size: 300% 300%;
+  animation: gradientShift 4s ease infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ── VIBRANT LINK HOVER ── */
+a.vivid-link {
+  position: relative;
+  color: #a5b4fc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.vivid-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  transition: width 0.3s ease;
+}
+
+a.vivid-link:hover {
+  color: #c7d2fe;
+}
+
+a.vivid-link:hover::after {
+  width: 100%;
+}
+
+/* ── PULSE RING ANIMATION ── */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulse-ring 2s ease-out infinite;
+  z-index: -1;
+}
+
+/* ── VIBRANT SELECTION ── */
+::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: white;
+}
+
+/* ── INTERACTIVE FOCUS STYLES ── */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ── LOADING SKELETON ── */
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease infinite;
+  border-radius: 8px;
+}
+
+/* ── VIBRANT NAVBAR ACTIVE ── */
+.nav-active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #c7d2fe !important;
+}
+
+/* ── GLASS CARD VIBRANT ── */
+.glass-vivid {
+  background: rgba(99, 102, 241, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.glass-vivid:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+}

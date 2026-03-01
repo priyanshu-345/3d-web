@@ -1,7 +1,5 @@
 # 3D Interior Designer Website
-
 A full-stack web application for showcasing 3D interior designs with an admin panel for managing 3D models.
-
 ## 🚀 Features
 
 - **3D Model Viewer**: Interactive 3D interior designs using Three.js and React Three Fiber
@@ -120,8 +118,8 @@ npm run dev
 - ✅ Phase 6: Admin Authentication
 - ✅ Phase 7: Admin Panel
 - ✅ Phase 8: Frontend-Backend Integration
-- ⏳ Phase 9: Extra Features (Optional)
-- ⏳ Phase 10: Optimization
+- ✅ Phase 9: Extra Features (Dark Mode, Pagination, Search, All 3D Scenes)
+- ✅ Phase 10: Optimization (Lazy Loading, Code Splitting)
 - ⏳ Phase 11: Deployment Ready
 - ⏳ Phase 12: Documentation
 
@@ -158,16 +156,14 @@ Or use the login endpoint if you already have an account.
 3. **Admin Login**: Go to `/admin/login` to access the admin dashboard
 4. **Upload Design**: Use the admin panel to upload new 3D models (.glb files) with thumbnails
 
-## 🚧 Future Enhancements
+## � Future Enhancements
 
-- [ ] Change wall colors in 3D viewer
-- [ ] Lighting presets
-- [ ] Fullscreen 3D view improvements
-- [ ] Price display and booking form
-- [ ] WhatsApp integration
 - [ ] Model compression and optimization
-- [ ] Lazy loading for better performance
 - [ ] Cloud storage integration (AWS S3, Cloudinary)
+- [ ] Email notifications
+- [ ] Social sharing
+- [ ] Multi-language support
+- [ ] Comments/Reviews system
 
 ## 📝 License
 

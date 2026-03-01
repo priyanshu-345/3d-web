@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import api from '../utils/api';
-import NetworkBackground3D from '../components/NetworkBackground3D';
 import TextMorph from '../components/TextMorph';
-import { Canvas } from '@react-three/fiber';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -43,17 +41,37 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden" style={{ background: '#020617' }}>
 
-      {/* 3D Background */}
-      <div className="fixed inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <NetworkBackground3D />
-        </Canvas>
+      {/* CSS Animated Background (lightweight, no WebGL) */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[10%] left-[15%] w-[400px] h-[400px] rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%)', animation: 'contactOrb1 12s ease-in-out infinite alternate' }} />
+        <div className="absolute bottom-[15%] right-[10%] w-[350px] h-[350px] rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.15), transparent 70%)', animation: 'contactOrb2 15s ease-in-out infinite alternate' }} />
+        <div className="absolute top-[50%] left-[50%] w-[300px] h-[300px] rounded-full blur-2xl"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%)', transform: 'translate(-50%,-50%)', animation: 'contactOrb3 10s ease-in-out infinite alternate' }} />
+        {Array.from({ length: 30 }).map((_, i) => (
+          <div key={i} className="absolute rounded-full" style={{
+            width: `${1 + Math.random() * 3}px`, height: `${1 + Math.random() * 3}px`,
+            left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`,
+            background: ['#6366f1', '#a855f7', '#3b82f6', '#ec4899', '#fff'][i % 5],
+            opacity: 0.2 + Math.random() * 0.5,
+            animation: `contactStar ${3 + Math.random() * 5}s ease-in-out infinite alternate`,
+            animationDelay: `${Math.random() * 4}s`,
+          }} />
+        ))}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }} />
+        <style>{`
+          @keyframes contactOrb1 { from{transform:translate(0,0) scale(1)} to{transform:translate(40px,-30px) scale(1.15)} }
+          @keyframes contactOrb2 { from{transform:translate(0,0) scale(1)} to{transform:translate(-30px,20px) scale(1.1)} }
+          @keyframes contactOrb3 { from{transform:translate(-50%,-50%) scale(1)} to{transform:translate(-50%,-50%) scale(1.2)} }
+          @keyframes contactStar { from{transform:scale(1);opacity:.2} to{transform:scale(1.5);opacity:.8} }
+        `}</style>
       </div>
-      <div className="fixed inset-0 bg-slate-950/80 z-0 pointer-events-none"></div>
 
       {/* Header */}
       <section className="py-20 relative z-10 text-center">

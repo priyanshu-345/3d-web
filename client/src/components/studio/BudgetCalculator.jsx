@@ -1,5 +1,6 @@
 // Imports
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
+import SafeCanvas from '../SafeCanvas';
 import { useGLTF, Environment, Float, Stars, Sparkles } from '@react-three/drei';
 import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
@@ -125,14 +126,14 @@ const BudgetCalculator = ({ onComplete }) => {
         <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
             {/* --- 3D Background --- */}
             <div className="absolute inset-0 z-0 select-none">
-                <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+                <SafeCanvas fallbackLabel="Budget Calculator 3D" camera={{ position: [0, 0, 10], fov: 45 }}>
                     <ambientLight intensity={0.5} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
                     <pointLight position={[-10, -10, -10]} intensity={1} />
                     <Environment preset="city" />
                     <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
                     <ScrollAnimationModel />
-                </Canvas>
+                </SafeCanvas>
                 {/* Overlay Gradient for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50 pointer-events-none"></div>
             </div>

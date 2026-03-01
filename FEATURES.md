@@ -67,16 +67,20 @@
 - [ ] Email notifications
 - [ ] User registration (public users)
 - [ ] Favorites/Wishlist
-- [ ] Search functionality
-- [ ] Pagination for gallery
 - [ ] Model compression
 - [ ] CDN for file storage
 - [ ] Analytics dashboard
 - [ ] Multi-language support
-- [ ] Dark mode toggle
 - [ ] Social sharing
 - [ ] Comments/Reviews
 - [ ] Rating system
+
+### ✅ Recently Completed
+- [x] Dark mode toggle
+- [x] Search functionality
+- [x] Pagination for gallery
+- [x] Exterior 3D scene
+- [x] All 7 gallery categories have dedicated 3D scenes
 
 ## 📱 Mobile Features
 - ✅ Responsive design

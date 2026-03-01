@@ -1,5 +1,6 @@
 import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
+import SafeCanvas from './SafeCanvas';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 
@@ -17,7 +18,7 @@ const ParticleNetwork = (props) => {
             <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
                 <PointMaterial
                     transparent
-                    color="#6366f1" // Indigo-500
+                    color="#6366f1"
                     size={0.005}
                     sizeAttenuation={true}
                     depthWrite={false}
@@ -31,9 +32,9 @@ const ParticleNetwork = (props) => {
 const NetworkBackground3D = () => {
     return (
         <div className="absolute inset-0 z-0">
-            <Canvas camera={{ position: [0, 0, 1] }}>
+            <SafeCanvas fallbackLabel="Particle Network" camera={{ position: [0, 0, 1] }}>
                 <ParticleNetwork />
-            </Canvas>
+            </SafeCanvas>
         </div>
     );
 };
